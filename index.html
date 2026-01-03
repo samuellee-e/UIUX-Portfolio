@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Lee Zhi Jian - UX Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Introduction Video Section */
+        .intro-video {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .stat-item {
+            text-align: left;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .profile-section {
+            text-align: center;
+        }
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            overflow: hidden;
+            border: 4px solid #fff;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+        .philosophy-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: white;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            z-index: 0;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .process-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+        .process-step:hover .process-icon {
+            transform: translateY(-10px);
+        }
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .process-step p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+        .project-grid {
+            display: grid;
+            gap: 5rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+        }
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        .project-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+        .project-title {
+            font-size: 2.2rem;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .project-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+        .project-content {
+            padding: 50px;
+        }
+        
+        /* Project Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .overview-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+        .overview-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .overview-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #999;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+        .overview-value {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Media Gallery */
+        .media-gallery {
+            margin: 3rem 0;
+            padding: 3rem 0;
+            border-top: 2px solid #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .media-section-title {
+            font-size: 1.1rem;
+            color: #667eea;
+            margin: 2rem 0 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .prototype-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .prototype-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            background: #f8f9fa;
+            aspect-ratio: 9/16;
+        }
+        .prototype-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+        }
+        .prototype-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            color: #667eea;
+        }
+        .prototype-label {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .video-placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .video-placeholder-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            animation: fadeIn 0.3s;
+        }
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .modal-close:hover {
+            transform: scale(1.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Project Sections */
+        .project-section {
+            margin-bottom: 3rem;
+        }
+        .project-section h4 {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-section p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .project-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .project-section ul li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            border-left: 3px solid #667eea20;
+            margin-bottom: 0.5rem;
+        }
+        .project-section ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0.5rem;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Design Artifacts Grid */
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .artifact-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .artifact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+        .artifact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+        }
+        .artifact-label {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        /* Challenge Cards */
+        .challenge-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .challenge-card {
+            background: #fff;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .challenge-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.8rem;
+        }
+        .challenge-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Results Section */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .result-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        
+        /* Role Card */
+        .role-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #667eea;
+            margin: 1.5rem 0;
+        }
+        .role-card h5 {
+            font-size: 1.1rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .role-card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid #f0f0f0;
+        }
+        .tag {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #667eea;
+            border: 1px solid #667eea20;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: white;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .skill-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+        .skill-card ul {
+            list-style: none;
+        }
+        .skill-card li {
+            padding: 0.6rem 0;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        /* Certifications */
+        .certifications {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+        }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .cert-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .cert-card:hover {
+            transform: translateY(-8px);
+            border-color: #667eea;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+        .cert-preview {
+            width: 100%;
+            aspect-ratio: 11 / 8.5;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            max-height: 400px;
+            border: 1px solid #e0e0e0;
+        }
+        .cert-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+            transform: scale(1.02);
+            transform-origin: center;
+        }
+        .cert-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .cert-card:hover .cert-overlay {
+            opacity: 1;
+        }
+        .view-button {
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .cert-info {
+            padding: 25px 30px;
+        }
+        .cert-card h3 {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        .cert-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .cert-links {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .cert-link-btn {
+            padding: 8px 18px;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            color: #667eea;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #667eea20;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .cert-link-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .cert-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            color: #667eea;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #667eea20;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 16px 32px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .overview-grid, .results-grid {
+                grid-template-columns: 1fr;
+            }
+            .artifacts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .skills-grid, .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            nav .container {
+                padding: 15px 20px;
+            }
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+            .hero {
+                padding: 80px 0 60px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .process-timeline {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .process-timeline::before {
+                display: none;
+            }
+            .prototype-grid {
+                grid-template-columns: 1fr;
+            }
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid, .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .project-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Samuel Lee</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>UX Designer & Researcher</h1>
+                <p class="subtitle">Crafting intuitive experiences through human-centered design</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Major Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">User Interviews</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Usability Tests</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="profile_pic.png" alt="Samuel Lee Zhi Jian">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>Samuel Lee Zhi Jian</h2>
+                    <p>UX/UI designer passionate about solving real-world problems through user-centered design. Currently pursuing studies in UI/UX Design and Development with focus on automotive interfaces and event management systems.</p>
+                    
+                    <div class="philosophy-box">
+                        <strong>Design Philosophy:</strong> Great design is invisible. I believe in creating solutions that bridge business goals with user needs through rigorous research, iterative testing, and data-driven decisions.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Video Section -->
+    <section class="intro-video">
+        <div class="container">
+            <h2 class="section-title">Meet Samuel</h2>
+            <div class="video-container">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                    src="https://www.youtube.com/embed/XDANPcki4to" 
+                    title="Meet Samuel - Intro Video" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Design Process</h2>
+            <div class="process-timeline">
+                
+                <div class="process-step">
+                    <div class="process-icon">🔍</div>
+                    <h3>Research</h3>
+                    <p>User interviews, surveys, and contextual research to understand user needs and problems.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">💡</div>
+                    <h3>Ideation</h3>
+                    <p>Brainstorming ideas, defining personas, and mapping user journeys and flows.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">✏️</div>
+                    <h3>Wireframing</h3>
+                    <p>Creating low- to mid-fidelity wireframes to structure layouts and interactions.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">🎨</div>
+                    <h3>Prototyping</h3>
+                    <p>Developing high-fidelity interactive prototypes using design tools such as Figma.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-icon">✅</div>
+                    <h3>Testing</h3>
+                    <p>Conducting usability testing, gathering feedback, and refining the design iteratively.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                
+                <!-- Project 1: Driven Well AI -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🚗</div>
+                        <h3 class="project-title">Driven Well AI</h3>
+                        <p class="project-subtitle">Driver Ergonomics & Fatigue Management System</p>
+                    </div>
+                    <div class="project-content">
+                        
+                        <!-- Project Overview -->
+                        <h4 style="font-size: 1.5rem; color: #1a1a1a; margin-bottom: 2rem; font-weight: 700;">📋 Project Overview</h4>
+                        <div class="overview-grid">
+                            <div class="overview-card">
+                                <div class="overview-icon">🎯</div>
+                                <div class="overview-label">Objective</div>
+                                <div class="overview-value">Design AI-driven system to proactively monitor driver posture and fatigue, improving comfort, safety, and long-term health</div>
+                            </div>
+                            <div class="overview-card">
+                                <div class="overview-icon">👥</div>
+                                <div class="overview-label">Target Users</div>
+                                <div class="overview-value">Daily commuters, long-distance drivers, e-hailing and delivery drivers experiencing discomfort and fatigue</div>
+                            </div>
+                            <div class="overview-card">
+                                <div class="overview-icon">⚠️</div>
+                                <div class="overview-label">Problem Space</div>
+                                <div class="overview-value">Gap between ergonomic vehicle design and actual driver behavior leads to poor posture, discomfort, and increased accident risk</div>
+                            </div>
+                        </div>
+
+                        <!-- Design Process -->
+                        <div class="project-section">
+                            <h4>🔄 Design Process</h4>
+                            <p><strong>Research:</strong> Conducted contextual inquiry in realistic driving scenarios with semi-structured interviews involving students, lecturers, and long-distance drivers to identify ergonomic pain points and fatigue patterns.</p>
+                            <p><strong>Ideation:</strong> Brainstormed AI-supported features including posture tracking, fatigue detection, and smart break recommendations across multiple dashboard concepts.</p>
+                            <p><strong>Wireframing:</strong> Produced three initial design concepts focusing on dashboard-based feedback.</p>
+                            <p><strong>Prototyping:</strong> Created paper prototypes for infotainment and instrument cluster screens, then developed digital mock-ups through iterative refinement.</p>
+                            <p><strong>Testing:</strong> Performed heuristic evaluations with peers and controlled usability testing with students, long-distance drivers, and ergonomics specialists across multiple iterations.</p>
+                        </div>
+
+                        <!-- Design Artifacts -->
+                        <div class="project-section">
+                            <h4>🎨 Design Artifacts</h4>
+                            <div class="artifacts-grid">
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📝</div>
+                                    <div class="artifact-label">Interview Transcripts</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📊</div>
+                                    <div class="artifact-label">Task Analysis</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">✏️</div>
+                                    <div class="artifact-label">Design Sketches</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📖</div>
+                                    <div class="artifact-label">Storyboards</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📄</div>
+                                    <div class="artifact-label">Paper Prototypes</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">✅</div>
+                                    <div class="artifact-label">Heuristic Reports</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">🧪</div>
+                                    <div class="artifact-label">Usability Tests</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">🎨</div>
+                                    <div class="artifact-label">Digital Mockups</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Media Gallery -->
+                        <div class="media-gallery">
+                            <h4 class="media-section-title">📱 Sketched Paper Prototypes</h4>
+                            <div class="prototype-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('driven-sketch-1')" style="aspect-ratio: 1408/919; height: auto;">
+                                        <img src="images/driven-sketch-1.jpg" alt="Infotainment Main Menu" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Infotainment Main Menu</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('driven-sketch-2')" style="aspect-ratio: 1408/919; height: auto;">
+                                        <img src="images/driven-sketch-2.jpg" alt="Posture Alert Notification" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Posture Alert Notification</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('driven-sketch-3')" style="aspect-ratio: 1408/919; height: auto;">
+                                        <img src="images/driven-sketch-3.jpg" alt="Fatigue Alert Notification" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Fatigue Alert Notification</p>
+                                </div>
+                            </div>
+
+                            <h4 class="media-section-title" style="margin-top: 3rem;">📱 Digital Mockups</h4>
+                            <div class="prototype-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('driven-mockup-1')" style="aspect-ratio: 1280/800; height: auto;">
+                                        <img src="images/driven-mockup-1.png" alt="Infotainment Main Menu" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Infotainment Main Menu</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('driven-mockup-2')" style="aspect-ratio: 1280/800; height: auto;">
+                                        <img src="images/driven-mockup-2.png" alt="Posture Alert Notification" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Posture Alert Notification</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('driven-mockup-3')" style="aspect-ratio: 1280/800; height: auto;">
+                                        <img src="images/driven-mockup-3.png" alt="Fatigue Alert Notification" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Fatigue Alert Notification</p>
+                                </div>
+                            </div>
+                            
+                            <h4 class="media-section-title">🎥 Project Walkthrough</h4>
+                            <div class="video-container">
+                                <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;">
+                                    <source src="videos/driven.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+
+                        <!-- Challenges & Solutions -->
+                        <div class="project-section">
+                            <h4>🎯 Challenges & Solutions</h4>
+                            <div class="challenge-grid">
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Alerts caused distraction while driving</div>
+                                    <div class="challenge-text">Solution: Introduced steering-wheel button to dismiss alerts instead of touchscreen interaction, improving safety and efficiency.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Users couldn't understand what AI was detecting</div>
+                                    <div class="challenge-text">Solution: Added system-status messages and confirmation feedback like "Posture Fixed" for clarity.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Fatigue detection felt abrupt and unclear</div>
+                                    <div class="challenge-text">Solution: Implemented gradual fatigue indicators with icons and levels instead of single sudden alert.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Posture feedback lacked actionable guidance</div>
+                                    <div class="challenge-text">Solution: Added simple posture correction suggestions aligned with visual cues.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="project-section">
+                            <h4>📊 Results</h4>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <span class="result-number">3</span>
+                                    <span class="result-label">Usability Testing Rounds</span>
+                                </div>
+                                <div class="result-card">
+                                    <span class="result-number">High</span>
+                                    <span class="result-label">Clarity & Safety Rating</span>
+                                </div>
+                                <div class="result-card">
+                                    <span class="result-number">Validated</span>
+                                    <span class="result-label">Real-World Suitability</span>
+                                </div>
+                            </div>
+                            <p style="margin-top: 1.5rem;">Final design achieved high clarity, safety, and interpretability. Users appreciated automatic operation with minimal setup. Evaluators validated system as suitable for real-world driving contexts.</p>
+                        </div>
+
+                        <!-- My Role -->
+                        <div class="role-card">
+                            <h5>👤 My Role</h5>
+                            <p>As UX Researcher & Designer in this 6-member team, I participated in user research and interview analysis, contributed to task analysis and design ideation, was involved in paper prototyping and storyboard development, assisted in heuristic evaluation and usability testing sessions, contributed to design revisions based on user feedback, and supported documentation and final report preparation.</p>
+                        </div>
+
+                        <div class="tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">User Research</span>
+                            <span class="tag">Contextual Inquiry</span>
+                            <span class="tag">Usability Testing</span>
+                            <span class="tag">Automotive UX</span>
+                            <span class="tag">AI Integration</span>
+                            <span class="tag">Safety-Critical Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: SunEvent -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📅</div>
+                        <h3 class="project-title">SunEvent</h3>
+                        <p class="project-subtitle">Campus Event Management Platform</p>
+                    </div>
+                    <div class="project-content">
+                        
+                        <!-- Project Overview -->
+                        <h4 style="font-size: 1.5rem; color: #1a1a1a; margin-bottom: 2rem; font-weight: 700;">📋 Project Overview</h4>
+                        <div class="overview-grid">
+                            <div class="overview-card">
+                                <div class="overview-icon">🎯</div>
+                                <div class="overview-label">Objective</div>
+                                <div class="overview-value">Create centralized, user-friendly mobile platform to reduce missed events, improve discoverability, and enhance registration efficiency</div>
+                            </div>
+                            <div class="overview-card">
+                                <div class="overview-icon">👥</div>
+                                <div class="overview-label">Target Users</div>
+                                <div class="overview-value">Sunway University students (ages 16-25) with varying technical proficiency, plus university staff and event organizers</div>
+                            </div>
+                            <div class="overview-card">
+                                <div class="overview-icon">⚠️</div>
+                                <div class="overview-label">Problem Space</div>
+                                <div class="overview-value">Fragmented event information across emails, social media, and messaging leads to missed events and cognitive overload</div>
+                            </div>
+                        </div>
+
+                        <!-- Design Process -->
+                        <div class="project-section">
+                            <h4>🔄 Design Process</h4>
+                            <p><strong>Research:</strong> Conducted Google Form surveys with students and staff, identifying pain points like inbox overload and poor event visibility through refined questionnaires.</p>
+                            <p><strong>Ideation:</strong> Defined core UX problems around discoverability, navigation, and reminders. Created user personas and mapped user journeys focusing on event discovery.</p>
+                            <p><strong>Wireframing:</strong> Designed low-fidelity wireframes for Home, Event Discovery, Event Details, Registration, and Admin Dashboard screens with focus on layout clarity.</p>
+                            <p><strong>Prototyping:</strong> Developed high-fidelity prototypes in Figma with consistent color schemes, typography, and iconography for mobile and web versions.</p>
+                            <p><strong>Testing:</strong> Conducted usability testing with students and staff, evaluating task completion, clarity, and navigation flow for iterative refinement.</p>
+                        </div>
+
+                        <!-- Design Artifacts -->
+                        <div class="project-section">
+                            <h4>🎨 Design Artifacts</h4>
+                            <div class="artifacts-grid">
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📋</div>
+                                    <div class="artifact-label">Survey Results</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">👤</div>
+                                    <div class="artifact-label">User Personas</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">🗺️</div>
+                                    <div class="artifact-label">Info Architecture</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">🔄</div>
+                                    <div class="artifact-label">Task Flows</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📐</div>
+                                    <div class="artifact-label">Wireframes</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">🎨</div>
+                                    <div class="artifact-label">UI Mockups</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">📝</div>
+                                    <div class="artifact-label">Usability Reports</div>
+                                </div>
+                                <div class="artifact-item">
+                                    <div class="artifact-icon">🔁</div>
+                                    <div class="artifact-label">Before/After Comparisons</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Media Gallery -->
+                        <div class="media-gallery">
+                            <h4 class="media-section-title">📱 Wireframes</h4>
+                            <div class="prototype-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('sunevent-wire-1')" style="aspect-ratio: 658/1396; height: auto;">
+                                        <img src="images/sunevent-wire-1.png" alt="Home Page" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Home Page</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('sunevent-wire-2')" style="aspect-ratio: 658/1396; height: auto;">
+                                        <img src="images/sunevent-wire-2.png" alt="Events Page" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Events Page</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('sunevent-wire-3')" style="aspect-ratio: 658/1396; height: auto;">
+                                        <img src="images/sunevent-wire-3.png" alt="Event Details Page" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Event Details Page</p>
+                                </div>
+                            </div>
+
+                            <h4 class="media-section-title" style="margin-top: 3rem;">📱 Final Prototypes</h4>
+                            <div class="prototype-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('sunevent-final-1')" style="aspect-ratio: 658/1396; height: auto;">
+                                        <img src="images/sunevent-final-1.png" alt="Home Page" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Home Page</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('sunevent-final-2')" style="aspect-ratio: 658/1396; height: auto;">
+                                        <img src="images/sunevent-final-2.png" alt="Events Page" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Events Page</p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <div class="prototype-item" onclick="openModal('sunevent-final-3')" style="aspect-ratio: 658/1396; height: auto;">
+                                        <img src="images/sunevent-final-3.png" alt="Event Details Page" style="width: 100%; height: 100%; object-fit: contain; background: #f8f9fa;">
+                                    </div>
+                                    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #555; font-weight: 500;">Event Details Page</p>
+                                </div>
+                            </div>
+                            
+                            <h4 class="media-section-title">🎥 Project Walkthrough</h4>
+                            <div class="video-container">
+                                <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; background: #000;">
+                                    <source src="videos/sunevent.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+
+                        <!-- Challenges & Solutions -->
+                        <div class="project-section">
+                            <h4>🎯 Challenges & Solutions</h4>
+                            <div class="challenge-grid">
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Poor Event Discoverability</div>
+                                    <div class="challenge-text">Solution: Introduced searchable listings, category filters, highlighted upcoming/recommended events, and clearer event cards.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Confusing Navigation Flow</div>
+                                    <div class="challenge-text">Solution: Refined logic so users redirect to My Events after registration and access details directly from notifications and home cards.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Unclear or Missing Information</div>
+                                    <div class="challenge-text">Solution: Added organizer details, duration, capacity indicators, clickable locations, and clearer placeholder text in forms.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Reminder & Notification Confusion</div>
+                                    <div class="challenge-text">Solution: Separated reminders and notifications using segmented controls with customizable reminder settings.</div>
+                                </div>
+                                <div class="challenge-card">
+                                    <div class="challenge-title">Challenge: Visual and Layout Inconsistencies</div>
+                                    <div class="challenge-text">Solution: Improved alignment, removed redundant admin elements, refined color palette for consistent layout.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="project-section">
+                            <h4>📊 Results</h4>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <span class="result-number">76.5%</span>
+                                    <span class="result-label">Increased Engagement Potential</span>
+                                </div>
+                                <div class="result-card">
+                                    <span class="result-number">30+</span>
+                                    <span class="result-label">Survey Responses Analyzed</span>
+                                </div>
+                                <div class="result-card">
+                                    <span class="result-number">100%</span>
+                                    <span class="result-label">Task Completion Rate</span>
+                                </div>
+                            </div>
+                            <p style="margin-top: 1.5rem;">Fully interactive high-fidelity prototype demonstrated improved usability and clarity. All usability test participants successfully completed key tasks. Users found the app easy to navigate and intuitive with strong positive response toward centralized event information and reminder features.</p>
+                        </div>
+
+                        <!-- My Role -->
+                        <div class="role-card">
+                            <h5>👤 My Role</h5>
+                            <p>In this 6-member team project, I participated in UX research design and analysis, assisted in persona creation and user journey mapping, designed and refined wireframes and high-fidelity UI screens, conducted and documented usability testing, analyzed usability feedback and proposed UX-driven refinements, and contributed to UX rationale, reflection, and final documentation. My role focused primarily on UX logic, usability analysis, and iterative improvement.</p>
+                        </div>
+
+                        <div class="tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">User Research</span>
+                            <span class="tag">Surveys</span>
+                            <span class="tag">Personas</span>
+                            <span class="tag">Wireframing</span>
+                            <span class="tag">Usability Testing</span>
+                            <span class="tag">Mobile & Web</span>
+                            <span class="tag">Information Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Design Tools</h3>
+                    <ul>
+                        <li>Figma</li>
+                        <li>Adobe XD</li>
+                        <li>Sketch</li>
+                        <li>Photoshop</li>
+                        <li>Illustrator</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>UX Methods</h3>
+                    <ul>
+                        <li>User Research</li>
+                        <li>Usability Testing</li>
+                        <li>Personas</li>
+                        <li>Journey Mapping</li>
+                        <li>Task Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Design</h3>
+                    <ul>
+                        <li>Wireframing</li>
+                        <li>Prototyping</li>
+                        <li>Design Systems</li>
+                        <li>Information Architecture</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Development</h3>
+                    <ul>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                        <li>React Basics</li>
+                        <li>Git</li>
+                        <li>Responsive Web</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+                
+                <!-- Certificate 1 -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <iframe src="certificates/cert1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                        <div class="cert-overlay">
+                            <a href="certificates/cert1.pdf" target="_blank" class="view-button">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>DevOps Foundations: Continuous Delivery / Continuous Integration</h3>
+                        <p>LinkedIn Learning</p>
+                        <span class="cert-badge">Issued on: Jan 2026</span>
+                        <div class="cert-links">
+                            <a href="https://www.linkedin.com/learning/certificates/bbfef33ddd1e25ca6646672d4c082946d364937d3a671af0a59d97d966392666?trk=share_certificate" class="cert-link-btn" target="_blank">🔗 View Credential</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 2 -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <iframe src="certificates/cert2.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                        <div class="cert-overlay">
+                            <a href="certificates/cert2.pdf" target="_blank" class="view-button">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Using Gamification to Create Learner Engagement</h3>
+                        <p>LinkedIn Learning</p>
+                        <span class="cert-badge">Issued on: Jan 2026</span>
+                        <div class="cert-links">
+                            <a href="https://www.linkedin.com/learning/certificates/95caa364c6c8024f8592acd3b9c8c749205972e2d1db93289b48bd3f0e4a9a74?trk=share_certificate" class="cert-link-btn" target="_blank">🔗 View Credential</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 3 -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <iframe src="certificates/cert3.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                        <div class="cert-overlay">
+                            <a href="certificates/cert3.pdf" target="_blank" class="view-button">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>The AI-Driven Product Designer</h3>
+                        <p>LinkedIn Learning</p>
+                        <span class="cert-badge">Issued on: Jan 2026</span>
+                        <div class="cert-links">
+                            <a href="https://www.linkedin.com/learning/certificates/f33d503249c6bbb9c76126ab5d0ebce9b29b3a4360f589e4c20d5e01e62e7499?trk=share_certificate" class="cert-link-btn" target="_blank">🔗 View Credential</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 4 -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <iframe src="certificates/cert4.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                        <div class="cert-overlay">
+                            <a href="certificates/cert4.pdf" target="_blank" class="view-button">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Using AI in the UX Design Process</h3>
+                        <p>LinkedIn Learning</p>
+                        <span class="cert-badge">Issued on: Jan 2026</span>
+                        <div class="cert-links">
+                            <a href="https://www.linkedin.com/learning/certificates/e5ff2fb67e154aa93b78df64af61a6a94759a9c8473000eba3c8be080785ec2f?trk=share_certificate" class="cert-link-btn" target="_blank">🔗 View Credential</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 5 -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <iframe src="certificates/cert5.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                        <div class="cert-overlay">
+                            <a href="certificates/cert5.pdf" target="_blank" class="view-button">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Exploring AI Workflows within Figma Design</h3>
+                        <p>LinkedIn Learning</p>
+                        <span class="cert-badge">Issued on: Jan 2026</span>
+                        <div class="cert-links">
+                            <a href="https://www.linkedin.com/learning/certificates/f345f4242800a704fc7c421a652e3cc321af6dbc4f064f36fd1f7da335c033d3?trk=share_certificate" class="cert-link-btn" target="_blank">🔗 View Credential</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate 6 -->
+                <div class="cert-card">
+                    <div class="cert-preview">
+                        <iframe src="certificates/cert6.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                        <div class="cert-overlay">
+                            <a href="certificates/cert6.pdf" target="_blank" class="view-button">View Certificate</a>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h3>Designing for Digital Accessibility in Online Learning</h3>
+                        <p>LinkedIn Learning</p>
+                        <span class="cert-badge">Issued on: Jan 2026</span>
+                        <div class="cert-links">
+                            <a href="https://www.linkedin.com/learning/certificates/af37d92ba26d77c07d050fe9df10f946c2bd36900a1adcbe72b5718a8ba11c1e?trk=share_certificate" class="cert-link-btn" target="_blank">🔗 View Credential</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Design Tools</h3>
+                    <ul>
+                        <li>Figma</li>
+                        <li>Adobe XD</li>
+                        <li>Sketch</li>
+                        <li>Photoshop</li>
+                        <li>Illustrator</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>UX Methods</h3>
+                    <ul>
+                        <li>User Research</li>
+                        <li>Usability Testing</li>
+                        <li>Personas</li>
+                        <li>Journey Mapping</li>
+                        <li>Task Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Design</h3>
+                    <ul>
+                        <li>Wireframing</li>
+                        <li>Prototyping</li>
+                        <li>Design Systems</li>
+                        <li>Information Architecture</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Development</h3>
+                    <ul>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                        <li>React Basics</li>
+                        <li>Git</li>
+                        <li>Responsive Web</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <p>Available for UX opportunities and collaborations</p>
+            <div class="contact-links">
+                <a href="mailto:samuellee7808@gmail.com" class="contact-link">📧 Email</a>
+                <a href="http:/www.linkedin.com/in/samuel-lee-zj" class="contact-link" target="_blank">💼 LinkedIn</a>
+                <a href="resume.pdf" class="contact-link" download>📄 Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Samuel Lee Zhi Jian. All rights reserved.</p>
+            <p>Designed with passion for great user experiences</p>
+        </div>
+    </footer>
+</body>
+</html>
